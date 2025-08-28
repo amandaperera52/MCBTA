@@ -110,9 +110,104 @@ sudo systemctl restart elasticsearch.service
 ```
 img 08
 
+Step 4: Testing the Deployed Elasticsearch Service
+
+- Once all the required installations and configurations are complete, validate the setup by either running the command below or accessing the service using the configured IP and port.
+
+```
+sudo systemctl status elasticsearch.service
+```
+img 09
+
+- Then go to AWS and set network rules
+  security > security group > inbound rule / outbound rule
+  Here we can add rules what are the ports we want to access VM.
+  ex -: add elastic port - 9200, kibana port - 5601
+  
+- Then we can try login to the elastic using username and password
+  https://(public ip of instance):9200
+
+img 16 
+
+Successfully configures elastic search and start
 
 
+# DEPLOYING AND CONFIGURING 
+THE KIBANA SERVICE 
+Step 1: Installing the kibana service 
+Step 2: Configuring the kibana.yml
+Step 3 : Starting the kibana service
+Step 4: Validate the Deployed Kibana Service
 
+
+Step 1: Installing the kibana service
+
+- Update
+```
+ sudo apt-get update
+```
+
+- The next step is to configure and install the Kibana service. Since the required packages have
+already been set up, we can proceed directly with the installation by running the command
+below
+
+```
+sudo apt install kibana
+```
+img 10
+
+- Once the installation is successfully completed, we can enable the Kibana service and start
+Kibana
+
+```
+sudo systemctl enable kibana.service
+```
+```
+sudo systemctl start kibana.service
+```
+img 11
+
+Step 2: Configuring the kibana.yml
+- Once configured, proceed to modify the settings in the /etc/kibana/kibana.yml file
+```
+sudo nano /etc/kibana/kibana.yml
+```
+img 12
+
+- we can change server port and server host
+  img 13
+  
+- Modifying the above-mentioned configuration allows global access to the Kibana service. If
+needed, the port can be adjusted according to your requirements. Once the configuration is set,
+restart the service to apply the changes.
+
+```
+sudo systemctl restart kibana.service
+```
+img 14
+
+Step 3: Starting the kibana service
+- Once all the required installations and configurations are complete, enable the Kibana service
+and start it.
+```
+sudo systemctl enable kibana
+```
+```
+sudo systemctl start kibana
+```
+Step 4: Validate the Deployed Kibana Service
+- After completing all the required installations and configurations, validate the setup by either
+running the command below or accessing the service using the configured IP and port
+
+- Check the status of the servers
+```
+sudo systemctl status kibana.service
+```
+img 15
+
+Kibana has been Successfully deployed and servers has configured.
+
+img 17
 
 
 
